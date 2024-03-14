@@ -1,0 +1,21 @@
+{
+    "specie_box": "<div class='specie-box roboto-regular'><span class='specie-name' contenteditable='true' inputmode='text' translate='no'>New specie</span><div class='sub-specie-box'><button class='plus' onclick='incrementSpecieCount(this);'>+</button><span class='specie-count'>0</span><button class='minus' onclick='decrementSpecieCount(this)'>-</button></div></div>",
+    "square": "<main class='main-show'></main><footer class='roboto-regular'><button class='new-specie'>New species</button></footer>",
+    "alert_on_stats": "Unable to prepare statistics, some samples are empty.\n\nTry removing empty samples and try again.",
+    "shannon_h2": "Shannon Index (base 2): ",
+    "shannon_span": "<b>The Shannon Index</b> is an index used to measure species diversity. This index provides <b>an idea of the species diversity of a habitat</b>, that is, the number of species in that habitat and the distribution of individuals within those species. This index is a measure of entropy, which can be understood as \"the average surprise provided by observing a sample\"",
+    "pielou_h2": "Pielou Evenness Index: ",
+    "pielou_span": "<b>The Pielou Evenness Index</b> is a rigorous comparison parameter, independent of species richness. It is very useful for <b>comparing potential dominance between sites</b>. The higher its value, the more balanced the population.",
+    "simpson_h2": "Simpson Index: ",
+    "simpson_span": "<b>The Simpson Index</b> is an index used to measure the diversity of a habitat. It corresponds to the <b>probability that two randomly selected individuals belong to the same species</b>. A higher index implies lower diversity.",
+    "dice_h2": "Sørensen-Dice Index between ",
+    "and": " and ",
+    "dice_span": "<b>The Sørensen-Dice Index</b>, also known by other names, is a statistical indicator that measures the <b>similarity of two samples</b>. The index measures the presence or absence of species. An index equal to 1 defines two samples as totally similar in the presence of species.",
+    "jaccard_h2": "Jaccard Index between ",
+    "jaccard_span": "<b>The Jaccard Index</b> is a metric used in statistics to compare similarity and diversity between samples. A Jaccard index of <b>100% means that all species in sample X are present in sample Y and vice versa</b>.",
+    "new_specie": "New specie",
+    "add_square": "Add an extension",
+    "rm_square": "Remove the last extension",
+    "get_stats": "Get statistics",
+    "back_to": "Back to squares"
+}

@@ -1,0 +1,250 @@
+/*=========================== RESET ===========================*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/*=========================== CSS ===========================*/
+
+body, .main-show, footer, .specie-box{
+    display: flex;
+}
+
+html{
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+html::-webkit-scrollbar{
+    display: none;
+}
+
+body{
+    flex-direction: column;
+    justify-content: center;
+    background-color: #5c5c5c;
+}
+
+.square{
+    background-color:#dcedf5 ;
+    border-radius: 2em;
+    padding: 1em;
+    margin: 2em;
+}
+
+.main-show{
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.specie-box{
+    justify-content: center;
+    background-color: #E6F7FF;
+    border: .1em solid #8BC34A;
+    border-radius: 1em;
+    margin: 5%;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 255, 0.1);
+    flex-direction: column;
+}
+
+.specie-name{
+    font-size: 1.2em;
+    margin: 10px;
+    color: #333333;
+    text-align: center;
+}
+
+.roboto-regular {
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.sub-specie-box > button{
+    width: 1.5em;
+    height: 1.5em;
+    margin: 1em;
+    padding: 0.2em;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    border-radius: 25%;
+    font-size: 1.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sub-specie-box > button.minus {
+    background-color: #f44336;
+}
+
+.sub-specie-box > button:hover {
+    cursor: pointer;
+}
+
+.sub-specie-box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer{
+    justify-content: space-around;
+}
+
+footer > button{
+    padding: 1em 2em;
+    margin: 0 1em;
+    background-color: #286400;
+    border-radius: 0.5em;
+    font-weight: 600;
+    color: white;
+    text-transform: uppercase;
+    transition: background-color 0.3s;
+    border: .2em solid #ffffff;
+}
+
+.new-specie{
+    background-color: #8BC34A;
+}
+
+.new-specie:hover{
+    background-color: #8BC34A;
+}
+
+footer > button:hover {
+    background-color: #286400;
+}
+
+#main, #stats{
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
+}
+
+#main{
+    display: flex;
+}
+
+#stats{
+    display: none;
+}
+
+#stats > .square{
+    display: flex;
+    flex-direction: column;
+}
+
+.statpoint > h2 {
+    font-size: 220%;
+    margin-bottom: 15%;
+    text-align: justify;
+}
+
+.statpoint > span {
+    display: block;
+    width: 100%;
+    text-align: justify;
+    line-height: 135%;
+    color: white;
+}
+
+.statpoint{
+    border: #dcedf5 .2em solid;
+    border-radius: 2em;
+    margin: 1em;
+    padding: 4em;
+    color: white;
+    width: 35%;
+    padding-top: 10%;
+    padding-bottom: 20%;
+    background-size: cover;
+}
+
+#shannon {
+    background-color: #6da52d;
+    align-self: flex-start;
+    text-align-last: left;
+    /* background-image: url(""); */
+}
+
+#pielou {
+    background-color: #916400;
+    align-self: flex-end;
+    text-align-last: right;
+    /* background-image: url(""); */
+}
+
+#simpson {
+    background-color: #FFC107;
+    align-self: flex-start;
+    text-align-last: left;
+    /* background-image: url(""); */
+}
+
+#dice{
+    background-color: #286400;
+    align-self: flex-end;
+    text-align-last: right;
+    padding-bottom: 0;
+    /* background-image: url(""); */
+}
+
+#jaccard{
+    background-color: #916400;
+    align-self: flex-start;
+    text-align-last: left;
+    padding-bottom: 0;
+    /* background-image: url(""); */
+}
+
+#dice > span, #jaccard > span{
+    margin-bottom: 20%;
+}
+
+b {
+    font-weight: 800;
+}

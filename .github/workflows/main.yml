@@ -1,0 +1,55 @@
+name: Rust Tests
+
+on:
+  push:
+    branches:
+      - '*'
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: self-hosted
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+    
+    - name: Set up Rust
+      uses: ATiltedTree/setup-rust@v1.0.5
+      with:
+        rust-version: stable
+
+    - name: Install dependencies
+      working-directory: src-tauri
+      run: cargo fetch
+    
+    - name: Run tests
+      working-directory: src-tauri
+      run: cargo test
+
+  build:
+    runs-on: self-hosted
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+    
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+
+    - name: Set up Rust
+      uses: ATiltedTree/setup-rust@v1.0.5
+      with:
+        rust-version: stable
+
+    - name: Install dependencies
+      run: npm install
+    
+    - name: Build Tauri application
+      run: npm run tauri build
+
+// TODO Changer le workflow

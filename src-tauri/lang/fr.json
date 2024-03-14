@@ -1,0 +1,21 @@
+{
+    "specie_box" : "<div class='specie-box roboto-regular'><span class='specie-name' contenteditable='true' inputmode='text' translate='no'>Nouvelle espèce</span><div class='sub-specie-box'><button class='plus' onclick='incrementSpecieCount(this);'>+</button><span class='specie-count'>0</span><button class='minus' onclick='decrementSpecieCount(this)'>-</button></div></div>",
+    "square" : "<main class='main-show'></main><footer class='roboto-regular'><button class='new-specie'>Nouvelle espèce</button></footer>",
+    "alert_on_stats" : "Impossible de préparer les statistiques, certains échantillons sont vides.\n\nEssayez de supprimer les échantillons vides et réessayez.",
+    "shannon_h2" : "Indice de Shannon (base 2) : ",
+    "shannon_span" : "<b>L'indice de Shannon</b> est un indice permettant de mesurer la diversité spécifique. Cet indice donne <b>une idée de la diversité spécifique d'un milieu</b>, c'est-à-dire du nombre d'espèces de ce milieu et de la répartition des individus au sein de ces espèces. Cet indice est une mesure de l'entropie, qui peut être entendue comme \"la surprise moyenne fournie par l'observation d'un échantillon\"",
+    "pielou_h2" : "Indice d'équitabilité de Pielou : ",
+    "pielou_span" : "<b>L'indice d'équitabilité de Pielou</b> est un paramètre de comparaison rigoureux, indépendant de la richesse spécifique. Il est très utile pour la <b>comparaison des dominances potentielles entre sites</b>. Plus sa valeur est élevée, plus le peuplement est équilibré.",
+    "simpson_h2" : "Indice de Simpson : ",
+    "simpson_span" : "<b>L'indice de Simpson</b> est un indice permettant de mesurer la diversité d'un milieu. Il correspond à la <b>probabilité que deux individus sélectionnés au hasard appartiennent à la même espèce</b>. Un indice plus élevé implique une diversité moindre.",
+    "dice_h2" : "Indice de Sørensen-Dice entre ",
+    "and" : " et ",
+    "dice_span" : "<b>L'indice de Sørensen-Dice</b>, connu aussi sous d'autres noms, est un indicateur statistique qui mesure la <b>similarité de deux échantillons</b>. L'indice mesure la présence ou l’absence d'espèces. Un indice égal à 1 défini deux échantillons comme totalement similaires en présence d'espèces.",
+    "jaccard_h2" : "Indice de Jaccard entre ",
+    "jaccard_span" : "<b>L'indice de Jaccard</b> est une métrique utilisée en statistiques pour comparer la similarité et la diversité entre des échantillons. Un indice de jaccard de <b>100% signifie que toutes les espèces de l'échantillon X sont présentes dans l'échantillon Y et inversement</b>.",
+    "new_specie" : "Nouvelle espèce",
+    "add_square" : "Ajouter une extension",
+    "rm_square" : "Retirer la dernière extension",
+    "get_stats" : "Obtenir les statistiques",
+    "back_to" : "Retourner aux carrés"
+}

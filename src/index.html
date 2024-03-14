@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title>Spicy Species</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div id="main">
+            <div class="square" id="0">
+                <main class="main-show"></main>
+                <footer class="roboto-regular">
+                    <button class="new-specie">
+                    </button>
+                </footer>
+            </div>
+            <footer>
+                <button id="add-square">
+                </button>
+                <button id="rm-square">
+                </button>
+                <button id="get-stats">
+                </button>
+            </footer>
+        </div>
+        <div id="stats">
+            <div class="square roboto-regular">
+
+            </div>
+            <footer>
+                <button id="back-to">
+                </button>
+            </footer>
+        </div>
+        <script type="module" src="main.js"></script>
+        <script>
+            function incrementSpecieCount(clickedPlus) {
+            var field = clickedPlus.parentElement.querySelector("span");
+            var count = field.textContent;
+            field.innerHTML = Number(count) + 1;
+        }
+
+        function decrementSpecieCount(clickedMinus) {
+            var field = clickedMinus.parentElement.querySelector("span");
+            var count = field.textContent;
+            if (Number(count) > 0) {
+                field.innerHTML = Number(count) - 1;
+            } else {
+                clickedMinus.parentElement.parentElement.remove();
+            }
+        }
+        </script>
+    </body>
+</html>
