@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Issue with Jaccard index counter that started from 0 - 0
 
+### Changed
+
+- Plus and minus order in sub-specie-box. Minus is now the left button and Plus the right one.
+
 ## [0.1.0] - 2024-03-16
 
 ### Added
