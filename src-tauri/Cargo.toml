@@ -1,6 +1,6 @@
 [package]
 name = "spicyspecies"
-version = "0.1.0"
+version = "0.1.1"
 description = "Simple french tool used to make stats"
 authors = ["WatzTheEngineer"]
 edition = "2021"
