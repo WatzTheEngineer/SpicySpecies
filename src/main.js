@@ -189,8 +189,8 @@ function buildStatPage(cooked) {
 
     if (dice.children.length > 0) { statsDiv.children[0].appendChild(dice) };
 
-    firstVectorIndex = 0;
-    secondVectorIndex = 0;
+    firstVectorIndex = 1;
+    secondVectorIndex = 2;
     let jaccard = document.createElement("div");
     jaccard.className = "statpoint"
     jaccard.id = "jaccard"
