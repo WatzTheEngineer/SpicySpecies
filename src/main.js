@@ -1,6 +1,7 @@
 const { resolveResource } = window.__TAURI__.path;
 const { readTextFile } = window.__TAURI__.fs;
 const { invoke } = window.__TAURI__.tauri;
+const { open } = window.__TAURI__.dialog;
 
 const LOCALE = String(await invoke("getlocale", {})).slice(0, 2);
 
@@ -35,6 +36,7 @@ const ADDSQUARE = LANG.add_square;
 const RMSQUARE = LANG.rm_square;
 const GETSTATS = LANG.get_stats;
 const BACKTO = LANG.back_to;
+const LOADCSV = LANG.load_csv;
 
 var mainDiv = document.getElementById("main");
 var statsDiv = document.getElementById("stats");
@@ -50,6 +52,7 @@ function initApp() {
     document.getElementById("rm-square").innerText = RMSQUARE;
     document.getElementById("get-stats").innerText = GETSTATS;
     document.getElementById("back-to").innerText = BACKTO;
+    document.getElementById("load-csv").innerText = LOADCSV;
     
     document.getElementById("get-stats").addEventListener("click", () => {
         let canCook = true;
@@ -61,15 +64,15 @@ function initApp() {
         })
         if (canCook) cookAllStats();
     })
-
+    
     document.getElementById("back-to").addEventListener("click", () => {
         backToSquares();
     })
-
+    
     document.getElementsByClassName("new-specie")[0].addEventListener("click", () => {
         AddNewSpecie(0);
     })
-
+    
     document.getElementById("add-square").addEventListener("click", function () {
         let square_number = mainDiv.getElementsByClassName("square").length.valueOf();
         let new_square = document.createElement('div');
@@ -81,24 +84,41 @@ function initApp() {
             AddNewSpecie(square_number);
         })
     });
-
+    
     document.getElementById("rm-square").addEventListener("click", function () {
         let squareCount = mainDiv.getElementsByClassName("square").length;
         if (squareCount > 1) {
             mainDiv.getElementsByClassName("square")[squareCount - 1].remove();
         }
     });
-
+    
+    document.getElementById("load-csv").addEventListener("click", async () => {
+        let selected = await open({
+            multiple: false,
+            directory: false,
+            title: LOADCSV,
+            filters: [{
+                name: "Data",
+                extensions: ['csv']
+            }]
+        });
+        if (selected != null) {
+            let loadedSpecies = await invoke("load_data_from_csv",{selected});
+            console.log(selected);
+            console.log(loadedSpecies);
+        }
+    });
+    
     console.log("%c APP INITIALIZED !", "color: #bada55");
 }
 
 async function cookAllStats() {
-
+    
     mainDiv.style.display = "none";
     statsDiv.style.display = "flex";
-
+    
     statsDiv.children[0].innerHTML = ""; // Reset stats page
-
+    
     let squareList = Array.from(mainDiv.getElementsByClassName("square"));
     let statsMatrix = [], speciesNames = [];
     squareList.forEach(sqr => {
@@ -123,21 +143,21 @@ async function cookAllStats() {
             let value = Number(box.children[1].children[1].innerText);
             speciesValues[name] = value;
         });
-
+        
         speciesNames.forEach((name, i) => {
             if (speciesValues.hasOwnProperty(name)) {
                 statsMatrix[index][i] = speciesValues[name];
             }
         });
     });
-
+    
     let cooked = await invoke("cook", { statsVector: statsMatrix });
     buildStatPage(cooked);
-
+    
 }
 
 function buildStatPage(cooked) {
-
+    
     let shannon = document.createElement("div");
     shannon.id = "shannon";
     shannon.className = "statpoint";
@@ -145,48 +165,48 @@ function buildStatPage(cooked) {
     shannon.appendChild(document.createElement("span"));
     shannon.children[0].innerText = SHANNON_H2 + cooked[0][0];
     shannon.children[1].innerHTML = SHANNON_SPAN;
-
+    
     statsDiv.children[0].appendChild(shannon);
-
+    
     let pielou = document.createElement("div");
     pielou.innerHTML = shannon.innerHTML;
     pielou.id = "pielou";
     pielou.className = "statpoint";
     pielou.children[0].innerText = PIELOU_H2 + cooked[0][1] + PERCENTAGE;
     pielou.children[1].innerHTML = PIELOU_SPAN;
-
+    
     statsDiv.children[0].appendChild(pielou);
-
+    
     let simpson = document.createElement("div");
     simpson.innerHTML = shannon.innerHTML;
     simpson.id = "simpson";
     simpson.className = "statpoint";
     simpson.children[0].innerText = SIMPSON_H2 + cooked[1][0] + PERCENTAGE;
     simpson.children[1].innerHTML = SIMPSON_SPAN;
-
+    
     statsDiv.children[0].appendChild(simpson);
-
+    
     let firstVectorIndex = 1, secondVectorIndex = 2;
     let dice = document.createElement("div");
     dice.className = "statpoint";
     dice.id = "dice";
-
+    
     cooked[2].forEach(e => {
-
+        
         dice.appendChild(document.createElement("h2"));
         dice.appendChild(document.createElement("span"));
         dice.children[dice.children.length - 2].innerText = DICE_H2 + firstVectorIndex + AND + secondVectorIndex + " : " + e
         dice.children[dice.children.length - 1].innerHTML = DICE_SPAN;
-
+        
         if (secondVectorIndex == Array.from(mainDiv.getElementsByClassName("square")).length) {
             firstVectorIndex++
             secondVectorIndex = firstVectorIndex + 1
         } else {
             secondVectorIndex++
         }
-
+        
     });
-
+    
     if (dice.children.length > 0) { statsDiv.children[0].appendChild(dice) };
 
     firstVectorIndex = 1;
@@ -194,23 +214,23 @@ function buildStatPage(cooked) {
     let jaccard = document.createElement("div");
     jaccard.className = "statpoint"
     jaccard.id = "jaccard"
-
+    
     cooked[3].forEach(e => {
-
+        
         jaccard.appendChild(document.createElement("h2"));
         jaccard.appendChild(document.createElement("span"));
         jaccard.children[jaccard.children.length - 2].innerText = JACCARD_H2 + firstVectorIndex + AND + secondVectorIndex + " : " + e + PERCENTAGE
         jaccard.children[jaccard.children.length - 1].innerHTML = JACCARD_SPAN;
-
+        
         if (secondVectorIndex == Array.from(mainDiv.getElementsByClassName("square")).length) {
             firstVectorIndex++;
             secondVectorIndex = firstVectorIndex + 1;
         } else {
             secondVectorIndex++;
         }
-
+        
     });
-
+    
     if (jaccard.children.length > 0) { statsDiv.children[0].appendChild(jaccard); };
 }
 

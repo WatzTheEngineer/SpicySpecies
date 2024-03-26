@@ -17,5 +17,6 @@
     "add_square" : "Ajouter une extension",
     "rm_square" : "Retirer la dernière extension",
     "get_stats" : "Obtenir les statistiques",
-    "back_to" : "Retourner aux carrés"
+    "back_to" : "Retourner aux carrés",
+    "load_csv" : "Charger depuis un CSV"
 }

@@ -17,5 +17,6 @@
     "add_square": "Add an extension",
     "rm_square": "Remove the last extension",
     "get_stats": "Get statistics",
-    "back_to": "Back to squares"
+    "back_to": "Back to squares",
+    "load_csv": "Load species from CSV"
 }
